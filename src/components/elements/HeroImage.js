@@ -17,37 +17,18 @@ const HeroImage = ({state}) => {
 ];
 
     const goToPrevSlide = () => {
-        // if(index === 1){
-        //     return setIndex(0), setTranslateValue(0);
-        // }
         if(index === 0){
             return setIndex(imgUrls.length - 1);
-            // return setTranslateValue(translateValue + backSlideWidth() /*+ -4*/), setIndex(state.heroImage.length - 1), setTranslateValue(translateValue + (slideWidth() + .2) * -(state.heroImage.length - 1));
         }
         setIndex(index - 1);
-        // setTranslateValue(translateValue + (slideWidth() + .2));
     }
     const goToNextSlide = () => {
-        // Exiting the method early if we are at the end of the images array.
-        // We also want to reset currentIndex and translateValue, so we return
-        // to the first image in the array.
-        if(index === imgUrls.length/*state.heroImage.length*/ - 1){
+        if(index === imgUrls.length - 1){
             return setIndex(0);
-            // return setIndex(0), setTranslateValue(0);
         }
 
-        //This will not run if we met the if condition above
         setIndex(index + 1);
-        // setTranslateValue(translateValue + (-(slideWidth()) + -.2));
     }
-
-    // const backSlideWidth = () => {
-    //     return (document.querySelector(".slide").clientWidth*-19/*.00301*/);
-    // }
-
-    // const slideWidth = () => {
-    //     return document.querySelector(".slide").clientWidth
-    // }
     return(
         <React.Fragment>
             <StyledHeroImage>

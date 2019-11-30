@@ -4,9 +4,6 @@ export const StyledHeroImage = styled.div`
     height: 650px;
     width: 100%;
     margin: 0 auto;
-    overflow: hidden;
-    white-space: nowrap;
-    position: relative;
     animation: animateHeroimage 1s;
 
     .heroimage-content {
@@ -61,13 +58,11 @@ export const StyledHeroImage = styled.div`
       }
 
     .slider-wrapper{
-        position: relative;
         height: 100%;
         width: 100%;
     }
 
     .slide{
-        display: inline-block;
         width: 100%;
         height: 100%;
     }
@@ -81,7 +76,41 @@ export const StyledHeroImage = styled.div`
         background: #f9f9f9;
         border-radius: 50%;
         cursor: pointer;
-        transition: transform ease-in .1s;
+        position: relative;
+        transition: transform ease-out .2s;
+
+        &::after{
+          content: ">>>>...";
+          display: flex;
+          height: 100%;
+          border-radius: 50%;
+          background-color: #f9f9f9;
+          align-items: center;
+          justify-content: center;
+          position: absolute;
+          top: 0;
+          left: 0;
+          z-index: -1;
+          transition: all .3s;
+        }
+
+        &:hover{
+          box-shadow: 0 10px 20px rgba(0,0,0,.2);
+
+          &::after{
+            transform: scale(1.6);
+            opacity: 0;
+          }
+        }
+
+        &:active{
+          box-shadow: 0 5px 10px rgba(0,0,0,.2);
+
+          &::after{
+            transform: scale(.5);
+            opacity: 1;
+          }
+        }
     }
     
     .nextArrow {
@@ -90,6 +119,14 @@ export const StyledHeroImage = styled.div`
         right: 25px;
         z-index: 999;
         color: #fff;
+
+        &:hover{
+          transform: translateX(10px);
+        }
+
+        &:active{
+          transform: translateX(5px);
+        }
       }
       
       .backArrow {
@@ -98,10 +135,18 @@ export const StyledHeroImage = styled.div`
         left: 25px;
         z-index: 999;
         color: #fff;
+
+        &:hover{
+          transform: translateX(-10px);
+        }
+
+        &:active{
+          transform: translateX(-5px);
+        }
       }
     
       .fa-arrow-right:before, .fa-arrow-left:before {
-        color: #222
+        color: #222;
       }
 
       @keyframes animateHeroimage {
