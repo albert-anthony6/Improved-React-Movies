@@ -57,10 +57,10 @@ export const StyledHeroImage = styled.div`
         white-space: normal;
       }
 
-    .slider-wrapper{
-        height: 100%;
-        width: 100%;
-    }
+    // .slider-wrapper{
+    //     height: 100%;
+    //     width: 100%;
+    // }
 
     .slide{
         width: 100%;

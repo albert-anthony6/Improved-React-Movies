@@ -14,6 +14,7 @@ import Grid from './elements/Grid';
 import MovieThumb from './elements/MovieThumb';
 // import LoadMoreBtn from './elements/LoadMoreBtn';
 import Spinner from './elements/Spinner';
+import ItemSlider from './elements/ItemSlider';
 
 //Custom Hook
 import {useHomeFetch} from './hooks/useHomeFetch';
@@ -53,17 +54,10 @@ const Home = () => {
                 />
             {/* )} */}
             {/* <SearchBar callback={searchMovies}/>*/}
-            <Grid /*header={searchTerm ? 'Search Result' : 'Popular Movies'}*/>
-                {state.movies.map(movie => (
-                    <MovieThumb //Children
-                        key={movie.id}
-                        clickable
-                        image={movie.poster_path ? `${IMAGE_BASE_URL}${POSTER_SIZE}${movie.poster_path}` : NoImage}
-                        movieId={movie.id}
-                        movieName={movie.original_title}
-                    />
-                ))}
-            </Grid>
+            <ItemSlider header="Popular" state={state}/>
+            <ItemSlider header="unknown" state={state}/>
+            <ItemSlider header="unknown" state={state}/>
+            <ItemSlider header="unknown" state={state}/>
             {loading && <Spinner/>}
             {/* {state.currentPage < state.totalPages && !loading && (
                 <LoadMoreBtn text="Load More" callback={loadMoreMovies}/>

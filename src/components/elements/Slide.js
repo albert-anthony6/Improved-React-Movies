@@ -8,7 +8,6 @@ const Slide = ({image, text, title}) => {
         backgroundRepeat  : 'no-repeat',
         backgroundPosition: '50% 60%',
     }
-    console.log(text, title);
     return(
     <div className="slide" style={styles}>
         <div className="heroimage-content">
